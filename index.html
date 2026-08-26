@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechSavvi Group</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="cursorGlow" aria-hidden="true"></div>
+
+  <div id="app">
+    <header id="header" class="fixed top-0 left-0 w-full z-50">
+      <div class="px-4 md:px-[4%] pt-3 md:pt-4">
+        <div class="glass glow rounded-2xl border border-white/10">
+          <div class="flex items-center justify-between px-4 md:px-7 py-3 md:py-4">
+            <a href="#hero" class="flex items-center gap-3 group min-w-0" aria-label="TechSavvi Group Home">
+              <div class="rounded-xl p-[2px] glass border border-[rgba(30,64,175,0.10)] bg-[linear-gradient(135deg,rgba(255,255,255,0.82),rgba(240,247,255,0.94),rgba(225,240,255,0.98))] shadow-[0_10px_30px_rgba(59,130,246,0.12)]">
+                <img src="assets/logo-only.png" alt="TechSavvi Group logo" class="relative h-12 md:h-16 w-auto object-contain" />
+              </div>
+              <div class="leading-tight min-w-0">
+                <span class="block text-xs sm:text-sm md:text-base font-semibold tracking-[0.14em] md:tracking-[0.16em] uppercase text-[var(--text)]">
+                  TechSavvi
+                </span>
+                <span class="block text-[10px] md:text-xs tracking-[0.22em] uppercase text-[var(--text)]/60">
+                  Group
+                </span>
+              </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 ml-10 xl:ml-14" aria-label="Primary Navigation">
+              <a href="#about" class="text-sm text-[var(--text)]/80 hover:text-[var(--text)] transition-smooth">About</a>
+              <a href="#companies" class="text-sm text-[var(--text)]/80 hover:text-[var(--text)] transition-smooth">Companies</a>
+              <a href="#services" class="text-sm text-[var(--text)]/80 hover:text-[var(--text)] transition-smooth">Services</a>
+              <a href="#labs" class="text-sm text-[var(--text)]/80 hover:text-[var(--text)] transition-smooth">Labs</a>
+              <a href="#academy" class="text-sm text-[var(--text)]/80 hover:text-[var(--text)] transition-smooth">Academy</a>
+              <a href="#cases" class="text-sm text-[var(--text)]/80 hover:text-[var(--text)] transition-smooth">Case Studies</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-3">
+  <a href="#cta" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium text-[var(--text)] border border-[rgba(30,64,175,0.12)] bg-white/80 hover:scale-[1.02] hover:border-[var(--accent)]/40 transition-smooth">
+    Contact Us
+  </a>
+  <a href="#cta" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium text-[var(--text)] border border-white/10 glass hover:scale-[1.02] hover:border-[var(--accent)]/40 transition-smooth">
+    Explore Ecosystem
+  </a>
+  <a href="#cta" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold text-white bg-gradient-to-r from-blue-700 to-sky-400 glow hover:scale-[1.02] transition-smooth">
+    Book Consultation
+  </a>
+</div>
+
+            <button
+              id="menuToggle"
+              class="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-xl glass border border-white/10 text-[var(--text)]"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="mobileMenu"
+              type="button"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            </button>
+          </div>
+
+          <div id="mobileMenu" class="lg:hidden hidden border-t border-white/10 px-4 pb-4">
+            <nav class="flex flex-col gap-2 pt-4" aria-label="Mobile Navigation">
+              <a href="#about" class="rounded-xl px-4 py-3 text-sm text-[var(--text)]/80 glass border border-transparent hover:border-white/10 transition-smooth">About</a>
+              <a href="#companies" class="rounded-xl px-4 py-3 text-sm text-[var(--text)]/80 glass border border-transparent hover:border-white/10 transition-smooth">Companies</a>
+              <a href="#services" class="rounded-xl px-4 py-3 text-sm text-[var(--text)]/80 glass border border-transparent hover:border-white/10 transition-smooth">Services</a>
+              <a href="#labs" class="rounded-xl px-4 py-3 text-sm text-[var(--text)]/80 glass border border-transparent hover:border-white/10 transition-smooth">Labs</a>
+              <a href="#academy" class="rounded-xl px-4 py-3 text-sm text-[var(--text)]/80 glass border border-transparent hover:border-white/10 transition-smooth">Academy</a>
+              <a href="#cases" class="rounded-xl px-4 py-3 text-sm text-[var(--text)]/80 glass border border-transparent hover:border-white/10 transition-smooth">Case Studies</a>
+              <a href="#cta" class="rounded-xl px-4 py-3 text-sm font-medium text-[var(--text)] bg-white/85 border border-[rgba(30,64,175,0.12)] transition-smooth">
+  Contact Us
+</a>
+<a href="#cta" class="mt-2 inline-flex items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold text-white bg-gradient-to-r from-blue-700 to-sky-400 glow transition-smooth">
+  Book Consultation
+</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="min-h-screen flex items-center px-5 md:px-[6%] pt-28 md:pt-36 pb-16 md:pb-20 overflow-hidden relative">
+        <div class="absolute inset-0 pointer-events-none overflow-hidden">
+          <div class="absolute inset-0 bg-[linear-gradient(135deg,#ffffff_0%,#f6fbff_22%,#edf7ff_48%,#ffffff_72%,#f3f9ff_100%)]"></div>
+          <div class="absolute -top-24 left-[-4%] h-[32rem] w-[32rem] rounded-full blur-3xl bg-white/95"></div>
+          <div class="absolute top-[8%] left-[12%] h-[22rem] w-[22rem] rounded-full blur-3xl bg-[rgba(59,130,246,0.16)]"></div>
+          <div class="absolute top-[6%] right-[10%] h-[20rem] w-[20rem] rounded-full blur-3xl bg-[rgba(56,189,248,0.12)]"></div>
+          <div class="absolute bottom-[-4rem] left-[20%] h-[24rem] w-[24rem] rounded-full blur-3xl bg-[rgba(30,64,175,0.10)]"></div>
+          <div class="absolute bottom-[2%] right-[8%] h-[18rem] w-[18rem] rounded-full blur-3xl bg-white/80"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,255,255,0.95),transparent_18%),radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.14),transparent_24%),radial-gradient(circle_at_78%_20%,rgba(56,189,248,0.10),transparent_22%),radial-gradient(circle_at_72%_62%,rgba(59,130,246,0.08),transparent_24%),radial-gradient(circle_at_45%_86%,rgba(56,189,248,0.07),transparent_18%)]"></div>
+          <div class="absolute -top-16 left-[10%] h-[150%] w-[20%] rotate-[18deg] bg-gradient-to-b from-white/80 via-white/25 to-transparent blur-2xl opacity-60"></div>
+          <div class="absolute -top-12 right-[16%] h-[145%] w-[16%] rotate-[-18deg] bg-gradient-to-b from-white/60 via-[var(--accent)]/10 to-transparent blur-2xl opacity-45"></div>
+          <div class="absolute inset-0 opacity-[0.05] bg-[linear-gradient(rgba(30,64,175,1)_1px,transparent_1px),linear-gradient(90deg,rgba(30,64,175,1)_1px,transparent_1px)] bg-[size:96px_96px]"></div>
+          <div id="heroAurora" class="absolute inset-0 pointer-events-none overflow-hidden">
+            <div class="aurora-layer aurora-one"></div>
+            <div class="aurora-layer aurora-two"></div>
+            <div class="aurora-layer aurora-three"></div>
+          </div>
+        </div>
+
+        <div class="relative z-10 grid lg:grid-cols-[1.05fr_.95fr] gap-8 md:gap-14 items-center w-full">
+          <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-3 rounded-full border border-[rgba(30,64,175,0.10)] bg-white/70 backdrop-blur-xl px-3.5 md:px-4 py-2 mb-6 md:mb-7 shadow-[0_10px_30px_rgba(59,130,246,0.08)]">
+              <span class="h-2.5 w-2.5 rounded-full bg-[var(--neon)]"></span>
+              <span class="text-[11px] md:text-xs uppercase tracking-[0.28em] text-[rgba(45,11,74,0.65)]">
+                Future-facing technology ecosystem
+              </span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl xl:text-7xl font-semibold leading-[0.98] tracking-[-0.04em] text-[var(--text)]">
+              Build,
+              <span class="bg-gradient-to-r from-blue-700 to-sky-400 bg-clip-text text-transparent">innovate,</span>
+              and scale with cinematic precision.
+            </h1>
+
+            <p class="mt-6 max-w-2xl text-[15px] md:text-lg leading-7 md:leading-8 text-[rgba(15,23,42,0.72)]">
+              TechSavvi Group is a premium innovation ecosystem delivering digital transformation, intelligent systems, advanced technology experiences, and education pathways for ambitious brands and future-ready organizations.
+            </p>
+
+            <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+              <a href="#services" class="inline-flex w-full sm:w-auto items-center justify-center rounded-2xl px-6 py-4 text-sm font-semibold text-white bg-blue-700 shadow-[0_16px_32px_rgba(59,130,246,0.22)] hover:bg-blue-800 transition-smooth">
+                Explore Services
+              </a>
+              <a href="#academy" class="inline-flex w-full sm:w-auto items-center justify-center rounded-2xl px-6 py-4 text-sm font-semibold text-slate-900 bg-white border border-[rgba(59,130,246,0.18)] shadow-[0_10px_24px_rgba(59,130,246,0.10)] hover:border-[rgba(59,130,246,0.32)] transition-smooth">
+                Explore Academy
+              </a>
+            </div>
+
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl">
+              <div class="rounded-2xl border border-[rgba(30,64,175,0.08)] bg-white/68 backdrop-blur-xl px-4 md:px-5 py-4 shadow-[0_10px_30px_rgba(59,130,246,0.08)]">
+                <p class="text-[10px] uppercase tracking-[0.24em] text-[rgba(45,11,74,0.45)]">Ecosystem Reach</p>
+                <p class="mt-2 text-2xl font-semibold text-[var(--text)]">03</p>
+                <p class="mt-1 text-sm text-[rgba(45,11,74,0.60)]">Core innovation pillars</p>
+              </div>
+              <div class="rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/68 backdrop-blur-xl px-4 md:px-5 py-4 shadow-[0_10px_30px_rgba(59,130,246,0.12)]">
+                <p class="text-[10px] uppercase tracking-[0.24em] text-[rgba(45,11,74,0.45)]">Active Capability</p>
+                <p class="mt-2 text-2xl font-semibold text-[var(--text)]">24/7</p>
+                <p class="mt-1 text-sm text-[rgba(45,11,74,0.60)]">Digital acceleration mindset</p>
+              </div>
+              <div class="rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/68 backdrop-blur-xl px-4 md:px-5 py-4 shadow-[0_10px_30px_rgba(59,130,246,0.10)]">
+                <p class="text-[10px] uppercase tracking-[0.24em] text-[rgba(45,11,74,0.45)]">Built For</p>
+                <p class="mt-2 text-2xl font-semibold text-[var(--text)]">Scale</p>
+                <p class="mt-1 text-sm text-[rgba(45,11,74,0.60)]">Premium growth systems</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -top-10 -right-6 h-40 w-40 rounded-full bg-[var(--accent)]/10 blur-3xl"></div>
+            <div class="absolute -bottom-8 left-0 h-44 w-44 rounded-full bg-[var(--neon)]/8 blur-3xl"></div>
+
+            <div id="heroVisualWrap" class="relative mx-auto max-w-[660px] perspective-[1600px]">
+              <div id="heroVisualCard" class="relative rounded-[2rem] overflow-hidden min-h-[390px] md:min-h-[520px] p-4 md:p-6 transition-smooth border border-[rgba(30,64,175,0.08)] bg-white/58 backdrop-blur-[22px] shadow-[0_24px_80px_rgba(59,130,246,0.12)]">
+                <div class="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.88),rgba(59,130,246,0.08),rgba(56,189,248,0.06))]"></div>
+                <div class="absolute inset-[1px] rounded-[1.95rem] border border-white/60 pointer-events-none"></div>
+
+                <div class="relative h-full rounded-[1.6rem] overflow-hidden border border-[rgba(30,64,175,0.10)] bg-[linear-gradient(145deg,rgba(255,255,255,0.94),rgba(244,250,255,0.92),rgba(235,245,255,0.86))]">
+                  <div class="absolute inset-0 opacity-60">
+                    <div class="absolute top-[14%] left-[12%] h-24 md:h-28 w-24 md:w-28 rounded-full border border-[rgba(30,64,175,0.10)]"></div>
+                    <div class="absolute top-[22%] right-[14%] h-14 md:h-16 w-14 md:w-16 rounded-full border border-[rgba(30,64,175,0.10)]"></div>
+                    <div class="absolute bottom-[18%] left-[18%] h-16 md:h-20 w-16 md:w-20 rounded-full border border-[rgba(30,64,175,0.10)]"></div>
+                  </div>
+
+                  <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(255,255,255,0.76),transparent_20%),radial-gradient(circle_at_50%_45%,rgba(56,189,248,0.14),transparent_24%),radial-gradient(circle_at_40%_68%,rgba(59,130,246,0.10),transparent_22%)]"></div>
+
+                  <div class="relative z-10 h-full flex flex-col justify-between p-4 md:p-8">
+                    <div class="flex items-center justify-between gap-3">
+                      <div class="rounded-full px-3.5 md:px-4 py-2 border border-[rgba(30,64,175,0.10)] bg-white/70 backdrop-blur-xl">
+                        <p class="text-[10px] uppercase tracking-[0.26em] text-[rgba(45,11,74,0.50)]">TechSavvi Signal</p>
+                      </div>
+                      <div class="rounded-full px-3.5 md:px-4 py-2 border border-[rgba(30,64,175,0.10)] bg-white/70 backdrop-blur-xl">
+                        <p class="text-[10px] uppercase tracking-[0.26em] text-[rgba(45,11,74,0.50)]">2026 Vision Layer</p>
+                      </div>
+                    </div>
+
+                    <div class="relative flex-1 flex items-center justify-center">
+                      <div class="absolute h-[220px] w-[220px] md:h-[320px] md:w-[320px] rounded-full bg-white/95 blur-3xl"></div>
+
+                      <div id="heroOrbital" class="relative">
+                        <div class="absolute inset-[-28px] md:inset-[-34px] rounded-full border border-[rgba(30,64,175,0.10)]"></div>
+                        <div class="absolute inset-[-56px] md:inset-[-70px] rounded-full border border-[rgba(30,64,175,0.05)]"></div>
+
+                        <div class="relative rounded-[2rem] px-4 md:px-7 py-3.5 md:py-6 border border-[rgba(30,64,175,0.10)] bg-white/78 backdrop-blur-xl shadow-[0_20px_60px_rgba(59,130,246,0.12)]">
+                          <img src="assets/logo-only.png" alt="TechSavvi Group logo" class="relative h-12 md:h-16 w-auto object-contain drop-shadow-[0_12px_24px_rgba(59,130,246,0.20)]" />
+                        </div>
+
+                        <div class="absolute -top-4 md:-top-5 -right-2 md:-right-5 rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/72 backdrop-blur-xl px-3.5 md:px-4 py-2.5 md:py-3 shadow-[0_12px_24px_rgba(59,130,246,0.10)]">
+                          <p class="text-[10px] uppercase tracking-[0.24em] text-[rgba(45,11,74,0.45)]">Systems</p>
+                          <p class="mt-1 text-xs md:text-sm font-semibold text-[var(--text)]">Built to Scale</p>
+                        </div>
+
+                        <div class="absolute -bottom-4 md:-bottom-6 -left-2 md:-left-8 rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/72 backdrop-blur-xl px-3.5 md:px-4 py-2.5 md:py-3 shadow-[0_12px_24px_rgba(59,130,246,0.08)]">
+                          <p class="text-[10px] uppercase tracking-[0.24em] text-[rgba(45,11,74,0.45)]">Innovation</p>
+                          <p class="mt-1 text-xs md:text-sm font-semibold text-[var(--text)]">Labs + Academy</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 md:gap-3">
+                      <div class="rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/70 backdrop-blur-xl p-3 md:p-4">
+                        <p class="text-[10px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.42)]">Velocity</p>
+                        <p class="mt-2 text-base md:text-lg font-semibold text-[var(--text)]">+240%</p>
+                      </div>
+                      <div class="rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/70 backdrop-blur-xl p-3 md:p-4">
+                        <p class="text-[10px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.42)]">Systems</p>
+                        <p class="mt-2 text-base md:text-lg font-semibold text-[var(--text)]">Unified</p>
+                      </div>
+                      <div class="rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/70 backdrop-blur-xl p-3 md:p-4">
+                        <p class="text-[10px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.42)]">Experience</p>
+                        <p class="mt-2 text-base md:text-lg font-semibold text-[var(--text)]">Premium</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="absolute -right-4 md:-right-10 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-3">
+                <div class="rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/72 backdrop-blur-xl px-4 py-3 shadow-[0_12px_24px_rgba(59,130,246,0.08)]">
+                  <p class="text-[10px] uppercase tracking-[0.24em] text-[rgba(45,11,74,0.42)]">Build</p>
+                  <p class="mt-1 text-sm font-medium text-[var(--text)]/85">Digital products</p>
+                </div>
+                <div class="rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/72 backdrop-blur-xl px-4 py-3 shadow-[0_12px_24px_rgba(59,130,246,0.08)]">
+                  <p class="text-[10px] uppercase tracking-[0.24em] text-[rgba(45,11,74,0.42)]">Innovate</p>
+                  <p class="mt-1 text-sm font-medium text-[var(--text)]/85">Labs systems</p>
+                </div>
+                <div class="rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/72 backdrop-blur-xl px-4 py-3 shadow-[0_12px_24px_rgba(59,130,246,0.08)]">
+                  <p class="text-[10px] uppercase tracking-[0.24em] text-[rgba(45,11,74,0.42)]">Educate</p>
+                  <p class="mt-1 text-sm font-medium text-[var(--text)]/85">Academy growth</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-8 md:gap-10 items-center">
+          <div class="glass glow rounded-[2rem] p-5">
+            <div class="rounded-[1.6rem] min-h-[320px] md:min-h-[360px] bg-[linear-gradient(145deg,rgba(30,64,175,0.12),rgba(255,255,255,0.92),rgba(56,189,248,0.12))] p-5 md:p-8 flex flex-col justify-between">
+              <div class="flex items-center justify-between gap-3">
+                <div class="glass rounded-full px-4 py-2"><span class="text-[10px] uppercase tracking-[0.24em] text-[rgba(45,11,74,0.55)]">Group Overview</span></div>
+                <div class="glass rounded-full px-4 py-2"><span class="text-[10px] uppercase tracking-[0.24em] text-[rgba(45,11,74,0.55)]">Future-ready</span></div>
+              </div>
+
+              <div class="space-y-4 mt-6">
+                <h3 class="text-2xl md:text-3xl font-semibold text-[var(--text)]">One premium ecosystem across build, innovation, and education.</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div class="glass rounded-2xl p-4"><p class="text-xs uppercase tracking-[0.2em] text-[rgba(45,11,74,0.48)]">Build</p><p class="mt-2 text-sm">Technology delivery</p></div>
+                  <div class="glass rounded-2xl p-4"><p class="text-xs uppercase tracking-[0.2em] text-[rgba(45,11,74,0.48)]">Innovate</p><p class="mt-2 text-sm">Labs and systems</p></div>
+                  <div class="glass rounded-2xl p-4"><p class="text-xs uppercase tracking-[0.2em] text-[rgba(45,11,74,0.48)]">Educate</p><p class="mt-2 text-sm">Academy pathways</p></div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3 mt-6">
+                <div class="rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/76 px-4 py-3">
+                  <img src="assets/logo-only.png" alt="TechSavvi Group logo" class="h-10 w-auto object-contain" />
+                </div>
+                <p class="text-sm text-[rgba(45,11,74,0.66)]">Designed as a premium technology group for organizations that want strategic thinking, elegant execution, and a more intelligent path to scale.</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="inline-flex items-center gap-3 rounded-full border border-[rgba(30,64,175,0.10)] glass px-4 py-2 mb-6">
+              <span class="h-2.5 w-2.5 rounded-full bg-[var(--accent)]"></span>
+              <span class="text-[11px] uppercase tracking-[0.28em] text-[rgba(45,11,74,0.70)]">About TechSavvi Group</span>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--text)]">A premium technology ecosystem built to shape what comes next.</h2>
+            <p class="mt-6 text-[15px] md:text-lg leading-7 md:leading-8 text-[rgba(45,11,74,0.72)]">
+              TechSavvi Group unites digital execution, emerging innovation, and practical education into one elegant ecosystem. The mission is to help brands, founders, and organizations build smarter systems, launch stronger products, and grow with long-term strategic clarity.
+            </p>
+            <div class="mt-8 grid gap-4">
+              <div class="glass rounded-[1.5rem] p-5 md:p-6"><h3 class="text-lg font-semibold">Build with precision</h3><p class="mt-2 text-[rgba(45,11,74,0.68)]">Premium digital services, systems thinking, and execution quality aligned to business growth.</p></div>
+              <div class="glass rounded-[1.5rem] p-5 md:p-6"><h3 class="text-lg font-semibold">Innovate beyond the obvious</h3><p class="mt-2 text-[rgba(45,11,74,0.68)]">TechSavvi Labs explores future-ready solutions, intelligent workflows, and next-generation capabilities.</p></div>
+              <div class="glass rounded-[1.5rem] p-5 md:p-6"><h3 class="text-lg font-semibold">Educate for the future</h3><p class="mt-2 text-[rgba(45,11,74,0.68)]">TechSavvi Academy transforms knowledge into practical pathways for skills and capability building.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="companies">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+            <div>
+              <div class="inline-flex items-center gap-3 rounded-full border border-[rgba(30,64,175,0.10)] glass px-4 py-2 mb-5">
+                <span class="h-2.5 w-2.5 rounded-full bg-[var(--neon)]"></span>
+                <span class="text-[11px] uppercase tracking-[0.28em] text-[rgba(45,11,74,0.70)]">Our Companies</span>
+              </div>
+              <h2 class="text-3xl md:text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--text)]">Three focused pillars inside one high-performance ecosystem.</h2>
+            </div>
+            <p class="max-w-xl text-[15px] md:text-lg leading-7 md:leading-8 text-[rgba(45,11,74,0.68)]">The group is structured to build, innovate, and educate through distinct but connected experiences.</p>
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-6">
+            <article class="company-card group relative">
+              <div class="company-tilt glass glow rounded-[2rem] overflow-hidden min-h-[420px] md:min-h-[520px] transition-smooth">
+                <div class="relative h-56 md:h-64 overflow-hidden border-b border-[rgba(30,64,175,0.10)]">
+                  <img src="assets/TechSavvi-Solutions.jpeg" alt="TechSavvi Solutions" class="w-full h-full object-cover" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[rgba(26,4,43,0.68)] via-[rgba(30,64,175,0.18)] to-transparent"></div>
+                  <div class="absolute top-5 left-5 glass rounded-full px-4 py-2"><span class="text-[10px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.60)]">Company 01</span></div>
+                </div>
+                <div class="p-5 md:p-7">
+                  <h3 class="text-2xl font-semibold">TechSavvi Solutions</h3>
+                  <p class="mt-4 text-[rgba(45,11,74,0.68)] leading-7">The execution arm focused on digital solutions, business systems, premium service delivery, and scalable technology experiences.</p>
+                  <div class="mt-6 grid gap-3">
+                    <div class="glass rounded-2xl px-4 py-3 text-sm">Web experiences and platforms</div>
+                    <div class="glass rounded-2xl px-4 py-3 text-sm">Automation and digital systems</div>
+                    <div class="glass rounded-2xl px-4 py-3 text-sm">Premium transformation support</div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="company-card group relative">
+              <div class="company-tilt glass glow rounded-[2rem] overflow-hidden min-h-[420px] md:min-h-[520px] transition-smooth">
+                <div class="relative h-56 md:h-64 overflow-hidden border-b border-[rgba(59,130,246,0.08)]">
+                  <img src="assets/TechSavvi-Labs.jpeg" alt="TechSavvi Labs" class="w-full h-full object-cover" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[rgba(26,4,43,0.68)] via-[rgba(59,130,246,0.18)] to-transparent"></div>
+                  <div class="absolute top-5 left-5 glass rounded-full px-4 py-2"><span class="text-[10px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.60)]">Company 02</span></div>
+                </div>
+                <div class="p-5 md:p-7">
+                  <h3 class="text-2xl font-semibold">TechSavvi Labs</h3>
+                  <p class="mt-4 text-[rgba(45,11,74,0.68)] leading-7">The innovation layer where future-ready ideas are explored, prototyped, tested, and translated into smart operational advantage.</p>
+                  <div class="mt-6 grid gap-3">
+                    <div class="glass rounded-2xl px-4 py-3 text-sm">Emerging tech exploration</div>
+                    <div class="glass rounded-2xl px-4 py-3 text-sm">AI-ready experimentation</div>
+                    <div class="glass rounded-2xl px-4 py-3 text-sm">Innovation-led prototypes</div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="company-card group relative">
+              <div class="company-tilt glass glow rounded-[2rem] overflow-hidden min-h-[420px] md:min-h-[520px] transition-smooth">
+                <div class="relative h-56 md:h-64 overflow-hidden border-b border-[rgba(30,64,175,0.10)]">
+                  <img src="assets/TechSavvi-Academy.jpeg" alt="TechSavvi Academy" class="w-full h-full object-cover" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[rgba(26,4,43,0.68)] via-[rgba(56,189,248,0.18)] to-transparent"></div>
+                  <div class="absolute top-5 left-5 glass rounded-full px-4 py-2"><span class="text-[10px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.60)]">Company 03</span></div>
+                </div>
+                <div class="p-5 md:p-7">
+                  <h3 class="text-2xl font-semibold">TechSavvi Academy</h3>
+                  <p class="mt-4 text-[rgba(45,11,74,0.68)] leading-7">The education pillar delivering practical learning pathways, transformation skills, and modern technology literacy.</p>
+                  <div class="mt-6 grid gap-3">
+                    <div class="glass rounded-2xl px-4 py-3 text-sm">Skills and capability building</div>
+                    <div class="glass rounded-2xl px-4 py-3 text-sm">Courses for future-readiness</div>
+                    <div class="glass rounded-2xl px-4 py-3 text-sm">Structured growth pathways</div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="industries">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+            <div>
+              <div class="inline-flex items-center gap-3 rounded-full border border-[rgba(30,64,175,0.10)] glass px-4 py-2 mb-5">
+                <span class="h-2.5 w-2.5 rounded-full bg-[var(--accent)]"></span>
+                <span class="text-[11px] uppercase tracking-[0.28em] text-[rgba(45,11,74,0.70)]">Industries Served</span>
+              </div>
+              <h2 class="text-3xl md:text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--text)]">Built for ambitious sectors that need modern systems and elegant execution.</h2>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <article class="glass rounded-[2rem] p-5 md:p-7"><h3 class="text-2xl font-semibold">Corporate & Enterprise</h3><p class="mt-4 leading-7 text-[rgba(45,11,74,0.68)]">Technology strategy, digital systems, premium web experiences, and transformation support for organizations modernizing at scale.</p></article>
+            <article class="glass rounded-[2rem] p-5 md:p-7"><h3 class="text-2xl font-semibold">Startups & Growth Brands</h3><p class="mt-4 leading-7 text-[rgba(45,11,74,0.68)]">Founders and emerging companies that need premium execution, faster traction, and smarter systems to scale efficiently.</p></article>
+            <article class="glass rounded-[2rem] p-5 md:p-7"><h3 class="text-2xl font-semibold">Education & Skills Ecosystems</h3><p class="mt-4 leading-7 text-[rgba(45,11,74,0.68)]">Institutions and training-led initiatives seeking modern learning experiences and digital-first delivery.</p></article>
+            <article class="glass rounded-[2rem] p-5 md:p-7"><h3 class="text-2xl font-semibold">Innovation-Led Teams</h3><p class="mt-4 leading-7 text-[rgba(45,11,74,0.68)]">Teams exploring AI, automation, prototype systems, and new digital operating models.</p></article>
+            <article class="glass rounded-[2rem] p-5 md:p-7"><h3 class="text-2xl font-semibold">Institutions & Development Initiatives</h3><p class="mt-4 leading-7 text-[rgba(45,11,74,0.68)]">Programs and organizations looking for better technology delivery and stronger operational systems.</p></article>
+            <article class="glass rounded-[2rem] p-5 md:p-7"><h3 class="text-2xl font-semibold">Hybrid Ventures</h3><p class="mt-4 leading-7 text-[rgba(45,11,74,0.68)]">Organizations operating across products, services, learning, and innovation.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="why">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-[0.92fr_1.08fr] gap-8 md:gap-10">
+          <div class="lg:sticky lg:top-28">
+            <div class="inline-flex items-center gap-3 rounded-full border border-[rgba(30,64,175,0.10)] glass px-4 py-2 mb-5">
+              <span class="h-2.5 w-2.5 rounded-full bg-[var(--neon)]"></span>
+              <span class="text-[11px] uppercase tracking-[0.28em] text-[rgba(45,11,74,0.70)]">Why Choose Us</span>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--text)]">Why high-ambition clients choose TechSavvi Group.</h2>
+            <p class="mt-6 text-[15px] md:text-lg leading-7 md:leading-8 text-[rgba(45,11,74,0.72)]">One connected ecosystem, premium execution, future-facing thinking, and elegant systems built to convert.</p>
+          </div>
+
+          <div class="grid gap-5">
+            <article class="glass rounded-[2rem] p-5 md:p-7"><h3 class="text-2xl font-semibold">One connected ecosystem</h3><p class="mt-3 leading-7 text-[rgba(45,11,74,0.68)]">Instead of fragmented providers, TechSavvi Group brings execution, innovation, and education into one coherent system.</p></article>
+            <article class="glass rounded-[2rem] p-5 md:p-7"><h3 class="text-2xl font-semibold">Premium-first execution</h3><p class="mt-3 leading-7 text-[rgba(45,11,74,0.68)]">The visual language, interaction model, and service framing communicate a luxury technology brand.</p></article>
+            <article class="glass rounded-[2rem] p-5 md:p-7"><h3 class="text-2xl font-semibold">Future-facing thinking</h3><p class="mt-3 leading-7 text-[rgba(45,11,74,0.68)]">From Labs exploration to Academy learning pathways, the group is positioned for what comes next.</p></article>
+            <article class="glass rounded-[2rem] p-5 md:p-7"><h3 class="text-2xl font-semibold">Elegant systems, measurable outcomes</h3><p class="mt-3 leading-7 text-[rgba(45,11,74,0.68)]">Beauty and performance live together through clarity, speed, and premium outcomes.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+            <div>
+              <div class="inline-flex items-center gap-3 rounded-full border border-[rgba(30,64,175,0.10)] glass px-4 py-2 mb-5">
+                <span class="h-2.5 w-2.5 rounded-full bg-[var(--neon)]"></span>
+                <span class="text-[11px] uppercase tracking-[0.28em] text-[rgba(45,11,74,0.70)]">Featured Services</span>
+              </div>
+              <h2 class="text-3xl md:text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--text)]">Premium capabilities designed to build momentum and unlock scale.</h2>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-[1.1fr_.9fr] gap-6">
+            <div class="glass rounded-[2rem] p-5 md:p-8">
+              <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-5">
+                <div>
+                  <div class="inline-flex items-center rounded-full border border-[rgba(30,64,175,0.10)] bg-white/70 px-4 py-2">
+                    <span class="text-[10px] uppercase tracking-[0.24em] text-[rgba(45,11,74,0.52)]">Signature Offer</span>
+                  </div>
+                  <h3 class="mt-5 text-2xl md:text-4xl font-semibold leading-tight text-[var(--text)]">End-to-end digital transformation and premium web systems.</h3>
+                </div>
+                <div class="rounded-[1.5rem] border border-[rgba(30,64,175,0.10)] bg-white/68 px-4 md:px-5 py-4 min-w-[180px]">
+                  <p class="text-[10px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.48)]">Delivery Focus</p>
+                  <p class="mt-2 text-2xl font-semibold text-[var(--text)]">Build</p>
+                </div>
+              </div>
+
+              <p class="mt-6 max-w-3xl text-[15px] md:text-lg leading-7 md:leading-8 text-[rgba(45,11,74,0.68)]">Elegant websites, service platforms, automation layers, and conversion-focused digital infrastructure for brands that want more than a generic agency build.</p>
+
+              <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="glass rounded-[1.5rem] p-5"><p class="text-xs uppercase tracking-[0.22em] text-[rgba(45,11,74,0.48)]">Experience Design</p><p class="mt-3 text-lg font-semibold">Luxury websites and product interfaces</p></div>
+                <div class="glass rounded-[1.5rem] p-5"><p class="text-xs uppercase tracking-[0.22em] text-[rgba(45,11,74,0.48)]">Systems</p><p class="mt-3 text-lg font-semibold">Operational automation and workflow design</p></div>
+                <div class="glass rounded-[1.5rem] p-5"><p class="text-xs uppercase tracking-[0.22em] text-[rgba(45,11,74,0.48)]">Growth</p><p class="mt-3 text-lg font-semibold">Conversion architecture and scale support</p></div>
+                <div class="glass rounded-[1.5rem] p-5"><p class="text-xs uppercase tracking-[0.22em] text-[rgba(45,11,74,0.48)]">Execution</p><p class="mt-3 text-lg font-semibold">Premium implementation with strategic clarity</p></div>
+              </div>
+            </div>
+
+            <div class="grid gap-6">
+              <article class="service-card glass rounded-[2rem] p-5 md:p-7 transition-smooth"><h3 class="text-2xl font-semibold">Premium Website Design</h3><p class="mt-3 leading-7 text-[rgba(45,11,74,0.68)]">High-end brand websites, launch experiences, and service ecosystems designed to feel immersive and intelligent.</p></article>
+              <article class="service-card glass rounded-[2rem] p-5 md:p-7 transition-smooth"><h3 class="text-2xl font-semibold">Automation & Workflow Systems</h3><p class="mt-3 leading-7 text-[rgba(45,11,74,0.68)]">Smart operational layers that reduce friction and improve consistency.</p></article>
+              <article class="service-card glass rounded-[2rem] p-5 md:p-7 transition-smooth"><h3 class="text-2xl font-semibold">Digital Growth Advisory</h3><p class="mt-3 leading-7 text-[rgba(45,11,74,0.68)]">Consultation and strategic guidance for brands refining digital priorities and innovation readiness.</p></article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="configurator">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+            <div>
+              <div class="inline-flex items-center gap-3 rounded-full border border-[rgba(30,64,175,0.10)] glass px-4 py-2 mb-5">
+                <span class="h-2.5 w-2.5 rounded-full bg-[var(--neon)]"></span>
+                <span class="text-[11px] uppercase tracking-[0.28em] text-[rgba(45,11,74,0.70)]">Solutions Configurator</span>
+              </div>
+              <h2 class="text-3xl md:text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--text)]">Configure a premium solution path tailored to your growth stage.</h2>
+            </div>
+          </div>
+
+          <div class="grid xl:grid-cols-[0.95fr_1.05fr] gap-6 items-start">
+            <div class="glass rounded-[2rem] p-5 md:p-7">
+              <div class="space-y-7">
+                <div>
+                  <label class="block text-[11px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.52)] mb-3">Engagement Type</label>
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <button type="button" class="config-choice active-choice rounded-2xl border border-[rgba(30,64,175,0.12)] bg-[linear-gradient(145deg,rgba(59,130,246,0.14),rgba(255,255,255,0.92))] px-4 py-4 text-left transition-smooth" data-group="engagement" data-value="website" data-price="3200">
+                      <span class="block text-sm font-semibold">Website</span><span class="block mt-1 text-xs text-[rgba(45,11,74,0.55)]">Luxury digital presence</span>
+                    </button>
+                    <button type="button" class="config-choice rounded-2xl border border-[rgba(30,64,175,0.08)] bg-white/76 px-4 py-4 text-left transition-smooth" data-group="engagement" data-value="automation" data-price="4200">
+                      <span class="block text-sm font-semibold">Automation</span><span class="block mt-1 text-xs text-[rgba(45,11,74,0.55)]">Operational systems layer</span>
+                    </button>
+                    <button type="button" class="config-choice rounded-2xl border border-[rgba(30,64,175,0.08)] bg-white/76 px-4 py-4 text-left transition-smooth" data-group="engagement" data-value="ecosystem" data-price="5600">
+                      <span class="block text-sm font-semibold">Ecosystem</span><span class="block mt-1 text-xs text-[rgba(45,11,74,0.55)]">Multi-layer transformation</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-[11px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.52)] mb-3">Brand Stage</label>
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <button type="button" class="config-choice active-choice rounded-2xl border border-[rgba(30,64,175,0.12)] bg-[linear-gradient(145deg,rgba(59,130,246,0.14),rgba(255,255,255,0.92))] px-4 py-4 text-left transition-smooth" data-group="stage" data-value="startup" data-price="600">
+                      <span class="block text-sm font-semibold">Startup</span><span class="block mt-1 text-xs text-[rgba(45,11,74,0.55)]">Launch and position</span>
+                    </button>
+                    <button type="button" class="config-choice rounded-2xl border border-[rgba(30,64,175,0.08)] bg-white/76 px-4 py-4 text-left transition-smooth" data-group="stage" data-value="growth" data-price="1200">
+                      <span class="block text-sm font-semibold">Growth</span><span class="block mt-1 text-xs text-[rgba(45,11,74,0.55)]">Expand with structure</span>
+                    </button>
+                    <button type="button" class="config-choice rounded-2xl border border-[rgba(30,64,175,0.08)] bg-white/76 px-4 py-4 text-left transition-smooth" data-group="stage" data-value="enterprise" data-price="2200">
+                      <span class="block text-sm font-semibold">Enterprise</span><span class="block mt-1 text-xs text-[rgba(45,11,74,0.55)]">Transform at scale</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-[11px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.52)] mb-3">Delivery Speed</label>
+                  <input id="deliveryRange" type="range" min="1" max="3" value="2" class="w-full accent-[var(--accent)]" />
+                  <div class="mt-3 flex items-center justify-between text-xs text-[rgba(45,11,74,0.52)]">
+                    <span>Standard</span><span>Priority</span><span>Fast-track</span>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-[11px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.52)] mb-3">Add-on Capabilities</label>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <label class="config-addon rounded-2xl border border-[rgba(30,64,175,0.08)] bg-white/76 px-4 py-4 flex items-start gap-3 cursor-pointer transition-smooth">
+                      <input type="checkbox" class="mt-1 addon-input" data-price="900" />
+                      <span><span class="block text-sm font-semibold">Brand Messaging Layer</span><span class="block mt-1 text-xs text-[rgba(45,11,74,0.55)]">Sharper offer clarity and positioning</span></span>
+                    </label>
+                    <label class="config-addon rounded-2xl border border-[rgba(30,64,175,0.08)] bg-white/76 px-4 py-4 flex items-start gap-3 cursor-pointer transition-smooth">
+                      <input type="checkbox" class="mt-1 addon-input" data-price="1400" />
+                      <span><span class="block text-sm font-semibold">Automation Layer</span><span class="block mt-1 text-xs text-[rgba(45,11,74,0.55)]">Integrated workflows and systems</span></span>
+                    </label>
+                    <label class="config-addon rounded-2xl border border-[rgba(30,64,175,0.08)] bg-white/76 px-4 py-4 flex items-start gap-3 cursor-pointer transition-smooth">
+                      <input type="checkbox" class="mt-1 addon-input" data-price="1100" />
+                      <span><span class="block text-sm font-semibold">Analytics Dashboard</span><span class="block mt-1 text-xs text-[rgba(45,11,74,0.55)]">Performance insight and reporting</span></span>
+                    </label>
+                    <label class="config-addon rounded-2xl border border-[rgba(30,64,175,0.08)] bg-white/76 px-4 py-4 flex items-start gap-3 cursor-pointer transition-smooth">
+                      <input type="checkbox" class="mt-1 addon-input" data-price="1800" />
+                      <span><span class="block text-sm font-semibold">Training / Academy Enablement</span><span class="block mt-1 text-xs text-[rgba(45,11,74,0.55)]">Capability handoff and learning assets</span></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass rounded-[2rem] p-5 md:p-7">
+              <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-5">
+                <div>
+                  <p class="text-[10px] uppercase tracking-[0.24em] text-[rgba(45,11,74,0.45)]">Recommended Package</p>
+                  <h3 id="configPackageName" class="mt-2 text-2xl md:text-4xl font-semibold">Signature Website Build</h3>
+                </div>
+                <div class="rounded-[1.5rem] border border-[rgba(30,64,175,0.08)] bg-[linear-gradient(145deg,rgba(59,130,246,0.12),rgba(255,255,255,0.92))] px-5 py-4 min-w-[210px]">
+                  <p class="text-[10px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.48)]">Estimated Investment</p>
+                  <p class="mt-2 text-3xl font-semibold">$<span id="configTotal">5800</span></p>
+                </div>
+              </div>
+
+              <p id="configSummary" class="mt-6 max-w-3xl text-[15px] md:text-lg leading-7 md:leading-8 text-[rgba(45,11,74,0.68)]">
+                A premium web experience package for brands that need a strong market-facing presence with refined design, strong clarity, and conversion-ready structure.
+              </p>
+
+              <div class="mt-8 grid md:grid-cols-3 gap-4">
+                <div class="glass rounded-[1.6rem] p-5"><p class="text-xs uppercase tracking-[0.24em] text-[rgba(45,11,74,0.45)]">Timeline</p><p id="configTimeline" class="mt-2 text-xl font-semibold">4–6 weeks</p></div>
+                <div class="glass rounded-[1.6rem] p-5"><p class="text-xs uppercase tracking-[0.24em] text-[rgba(45,11,74,0.45)]">Complexity</p><p id="configComplexity" class="mt-2 text-xl font-semibold">Refined</p></div>
+                <div class="glass rounded-[1.6rem] p-5"><p class="text-xs uppercase tracking-[0.24em] text-[rgba(45,11,74,0.45)]">Fit</p><p id="configFit" class="mt-2 text-xl font-semibold">Launch-ready</p></div>
+              </div>
+
+              <div class="mt-8 rounded-[1.8rem] border border-[rgba(30,64,175,0.08)] bg-white/72 p-5 md:p-6">
+                <div class="flex items-center justify-between gap-4 mb-5">
+                  <h4 class="text-xl font-semibold">Included in your package</h4>
+                  <span class="text-[10px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.45)]">Live selection</span>
+                </div>
+                <div id="configIncludes" class="grid sm:grid-cols-2 gap-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="labs">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+            <div>
+              <div class="inline-flex items-center gap-3 rounded-full border border-[rgba(30,64,175,0.10)] glass px-4 py-2 mb-5">
+                <span class="h-2.5 w-2.5 rounded-full bg-[var(--neon)]"></span>
+                <span class="text-[11px] uppercase tracking-[0.28em] text-[rgba(45,11,74,0.70)]">TechSavvi Labs</span>
+              </div>
+              <h2 class="text-3xl md:text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--text)]">Explore the innovation layer where ideas become prototypes and future-ready experiments.</h2>
+            </div>
+          </div>
+
+          <div class="grid xl:grid-cols-[1.08fr_.92fr] gap-6 items-start">
+            <div class="glass rounded-[2rem] p-5 md:p-7">
+              <div class="grid md:grid-cols-[0.34fr_0.66fr] gap-4 md:gap-5 items-start">
+                <div class="space-y-3">
+                  <button type="button" class="labs-mode active-labs-mode w-full rounded-2xl border border-[rgba(30,64,175,0.12)] bg-[linear-gradient(145deg,rgba(59,130,246,0.14),rgba(255,255,255,0.92))] px-4 py-4 text-left transition-smooth" data-mode="ai-core">
+                    <span class="block text-sm font-semibold">AI Core</span><span class="block mt-1 text-xs text-[rgba(45,11,74,0.55)]">Intelligence workflows</span>
+                  </button>
+                  <button type="button" class="labs-mode w-full rounded-2xl border border-[rgba(30,64,175,0.08)] bg-white/76 px-4 py-4 text-left transition-smooth" data-mode="automation">
+                    <span class="block text-sm font-semibold">Automation Grid</span><span class="block mt-1 text-xs text-[rgba(45,11,74,0.55)]">Process systems</span>
+                  </button>
+                  <button type="button" class="labs-mode w-full rounded-2xl border border-[rgba(30,64,175,0.08)] bg-white/76 px-4 py-4 text-left transition-smooth" data-mode="product-lab">
+                    <span class="block text-sm font-semibold">Product Lab</span><span class="block mt-1 text-xs text-[rgba(45,11,74,0.55)]">Prototype testing</span>
+                  </button>
+                  <button type="button" class="labs-mode w-full rounded-2xl border border-[rgba(30,64,175,0.08)] bg-white/76 px-4 py-4 text-left transition-smooth" data-mode="learning-intel">
+                    <span class="block text-sm font-semibold">Learning Intel</span><span class="block mt-1 text-xs text-[rgba(45,11,74,0.55)]">Academy enablement</span>
+                  </button>
+                </div>
+
+                <div class="rounded-[1.8rem] border border-[rgba(30,64,175,0.08)] bg-[linear-gradient(145deg,rgba(255,255,255,0.92),rgba(245,248,255,0.84),rgba(255,255,255,0.88))] shadow-[0_18px_50px_rgba(59,130,246,0.08)] overflow-hidden">
+                  <div class="relative min-h-[420px] md:min-h-[520px] p-5 md:p-6">
+                    <div class="absolute inset-0 opacity-[0.06] bg-[linear-gradient(rgba(30,64,175,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(30,64,175,0.18)_1px,transparent_1px)] bg-[size:68px_68px]"></div>
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_22%_20%,rgba(59,130,246,0.14),transparent_22%),radial-gradient(circle_at_78%_24%,rgba(56,189,248,0.10),transparent_22%),radial-gradient(circle_at_50%_78%,rgba(30,64,175,0.10),transparent_26%)]"></div>
+
+                    <div id="labsSceneWrap" class="relative h-full min-h-[390px] md:min-h-[480px] flex items-center justify-center perspective-[1600px]">
+                      <div class="absolute h-[240px] w-[240px] md:h-[340px] md:w-[340px] rounded-full bg-[rgba(59,130,246,0.10)] blur-3xl"></div>
+                      <div id="labsOrbitalRing" class="absolute h-[280px] w-[280px] md:h-[390px] md:w-[390px] rounded-full border border-[rgba(30,64,175,0.08)]"></div>
+
+                      <div class="labs-node absolute top-[12%] left-[12%] md:left-[18%] rounded-2xl border border-[rgba(30,64,175,0.08)] bg-white/78 backdrop-blur-xl px-4 py-3 shadow-[0_12px_30px_rgba(59,130,246,0.08)]">
+                        <p class="text-[10px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.42)]">Signal</p>
+                        <p class="mt-1 text-sm font-semibold">Live inputs</p>
+                      </div>
+                      <div class="labs-node absolute top-[18%] right-[10%] md:right-[16%] rounded-2xl border border-[rgba(30,64,175,0.08)] bg-white/78 backdrop-blur-xl px-4 py-3 shadow-[0_12px_30px_rgba(59,130,246,0.08)]">
+                        <p class="text-[10px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.42)]">System</p>
+                        <p class="mt-1 text-sm font-semibold">Logic model</p>
+                      </div>
+                      <div class="labs-node absolute bottom-[18%] left-[10%] md:left-[16%] rounded-2xl border border-[rgba(30,64,175,0.08)] bg-white/78 backdrop-blur-xl px-4 py-3 shadow-[0_12px_30px_rgba(59,130,246,0.08)]">
+                        <p class="text-[10px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.42)]">Testing</p>
+                        <p class="mt-1 text-sm font-semibold">Rapid validation</p>
+                      </div>
+                      <div class="labs-node absolute bottom-[14%] right-[12%] md:right-[18%] rounded-2xl border border-[rgba(30,64,175,0.08)] bg-white/78 backdrop-blur-xl px-4 py-3 shadow-[0_12px_30px_rgba(59,130,246,0.08)]">
+                        <p class="text-[10px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.42)]">Launch</p>
+                        <p class="mt-1 text-sm font-semibold">Deployment path</p>
+                      </div>
+
+                      <div id="labsCore" class="relative rounded-[2rem] border border-[rgba(30,64,175,0.08)] bg-white/82 backdrop-blur-xl px-6 md:px-10 py-6 md:py-8 shadow-[0_24px_80px_rgba(59,130,246,0.12)] transition-smooth">
+                        <div class="relative text-center">
+                          <p class="text-[10px] uppercase tracking-[0.26em] text-[rgba(45,11,74,0.46)]">Labs Core Mode</p>
+                          <h4 id="labsModeTitle" class="mt-3 text-2xl md:text-4xl font-semibold">AI Core</h4>
+                          <p id="labsModeDescription" class="mt-4 max-w-xs mx-auto text-sm md:text-base leading-7 text-[rgba(45,11,74,0.64)]"></p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3">
+                      <div class="glass rounded-2xl p-4"><p class="text-xs uppercase tracking-[0.20em] text-[rgba(45,11,74,0.42)]">Prototype</p><p id="labsMetricOne" class="mt-2 text-xl font-semibold">14</p></div>
+                      <div class="glass rounded-2xl p-4"><p class="text-xs uppercase tracking-[0.20em] text-[rgba(45,11,74,0.42)]">Active Tests</p><p id="labsMetricTwo" class="mt-2 text-xl font-semibold">08</p></div>
+                      <div class="glass rounded-2xl p-4"><p class="text-xs uppercase tracking-[0.20em] text-[rgba(45,11,74,0.42)]">Mode Score</p><p id="labsMetricThree" class="mt-2 text-xl font-semibold">94%</p></div>
+                      <div class="glass rounded-2xl p-4"><p class="text-xs uppercase tracking-[0.20em] text-[rgba(45,11,74,0.42)]">Readiness</p><p id="labsMetricFour" class="mt-2 text-xl font-semibold">High</p></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 rounded-[1.8rem] border border-[rgba(30,64,175,0.08)] bg-white/72 p-5 md:p-6">
+                <p id="labsSummaryText" class="text-lg font-semibold">TechSavvi Labs is currently focused on intelligence workflows, decision support, and automation-enhanced execution systems.</p>
+              </div>
+            </div>
+
+            <div class="grid gap-6">
+              <article class="glass rounded-[2rem] p-5 md:p-7">
+                <h3 class="text-2xl font-semibold">Innovation Principles</h3>
+                <div class="mt-6 grid gap-3">
+                  <div class="glass rounded-2xl px-4 py-4"><p class="text-sm font-semibold">AI systems and workflow intelligence</p></div>
+                  <div class="glass rounded-2xl px-4 py-4"><p class="text-sm font-semibold">Prototype testing for new digital models</p></div>
+                  <div class="glass rounded-2xl px-4 py-4"><p class="text-sm font-semibold">Automation design for modern operations</p></div>
+                  <div class="glass rounded-2xl px-4 py-4"><p class="text-sm font-semibold">Learning translation into Academy pathways</p></div>
+                </div>
+              </article>
+
+              <article class="glass rounded-[2rem] p-5 md:p-7">
+                <h3 class="text-2xl font-semibold">Mode Output</h3>
+                <p id="labsOutputText" class="mt-4 text-[rgba(45,11,74,0.68)] leading-7"></p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="academy">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+            <div>
+              <div class="inline-flex items-center gap-3 rounded-full border border-[rgba(30,64,175,0.10)] glass px-4 py-2 mb-5">
+                <span class="h-2.5 w-2.5 rounded-full bg-[var(--accent)]"></span>
+                <span class="text-[11px] uppercase tracking-[0.28em] text-[rgba(45,11,74,0.70)]">TechSavvi Academy</span>
+              </div>
+              <h2 class="text-3xl md:text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--text)]">Turn knowledge into structured future-ready learning pathways.</h2>
+            </div>
+          </div>
+
+          <div class="grid xl:grid-cols-[1.08fr_.92fr] gap-6 items-start">
+            <div class="glass rounded-[2rem] p-5 md:p-7">
+              <div class="grid lg:grid-cols-3 gap-4">
+                <article class="academy-card active-academy-card rounded-[1.8rem] border border-[rgba(30,64,175,0.12)] bg-[linear-gradient(145deg,rgba(59,130,246,0.14),rgba(255,255,255,0.92))] p-5 transition-smooth cursor-pointer" data-course="digital-foundations">
+                  <h4 class="text-xl font-semibold">Digital Foundations</h4>
+                  <p class="mt-3 text-sm leading-7 text-[rgba(45,11,74,0.66)]">A practical introduction to digital strategy, modern workflows, tools, and transformation-ready thinking.</p>
+                  <div class="mt-5 flex items-center justify-between"><span class="text-sm font-medium">6 Weeks</span><span class="text-sm text-[rgba(45,11,74,0.58)]">$420</span></div>
+                </article>
+                <article class="academy-card rounded-[1.8rem] border border-[rgba(30,64,175,0.08)] bg-white/76 p-5 transition-smooth cursor-pointer" data-course="automation-mastery">
+                  <h4 class="text-xl font-semibold">Automation Mastery</h4>
+                  <p class="mt-3 text-sm leading-7 text-[rgba(45,11,74,0.66)]">Learn process design, automation logic, and systems thinking for smoother business operations.</p>
+                  <div class="mt-5 flex items-center justify-between"><span class="text-sm font-medium">8 Weeks</span><span class="text-sm text-[rgba(45,11,74,0.58)]">$680</span></div>
+                </article>
+                <article class="academy-card rounded-[1.8rem] border border-[rgba(30,64,175,0.08)] bg-white/76 p-5 transition-smooth cursor-pointer" data-course="ai-productivity">
+                  <h4 class="text-xl font-semibold">AI Productivity Lab</h4>
+                  <p class="mt-3 text-sm leading-7 text-[rgba(45,11,74,0.66)]">Explore prompt design, AI-supported workflows, and practical ways to improve speed and decision-making.</p>
+                  <div class="mt-5 flex items-center justify-between"><span class="text-sm font-medium">5 Weeks</span><span class="text-sm text-[rgba(45,11,74,0.58)]">$540</span></div>
+                </article>
+              </div>
+
+              <div class="mt-8 rounded-[1.8rem] border border-[rgba(30,64,175,0.08)] bg-white/74 p-5 md:p-7">
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-5">
+                  <div>
+                    <p class="text-[10px] uppercase tracking-[0.24em] text-[rgba(45,11,74,0.44)]">Selected Program</p>
+                    <h4 id="academyProgramTitle" class="mt-2 text-2xl md:text-3xl font-semibold">Digital Foundations</h4>
+                    <p id="academyProgramDescription" class="mt-4 max-w-2xl text-sm md:text-base leading-7 text-[rgba(45,11,74,0.66)]"></p>
+                  </div>
+                  <div class="rounded-[1.5rem] border border-[rgba(30,64,175,0.08)] bg-[linear-gradient(145deg,rgba(59,130,246,0.12),rgba(255,255,255,0.92))] px-5 py-4 min-w-[220px]">
+                    <p class="text-[10px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.48)]">Seats Remaining</p>
+                    <p class="mt-2 text-3xl font-semibold"><span id="academySeats">18</span></p>
+                  </div>
+                </div>
+
+                <div class="mt-7 grid md:grid-cols-3 gap-4">
+                  <div class="glass rounded-[1.5rem] p-5"><p class="text-xs uppercase tracking-[0.22em] text-[rgba(45,11,74,0.45)]">Duration</p><p id="academyDuration" class="mt-2 text-xl font-semibold">6 Weeks</p></div>
+                  <div class="glass rounded-[1.5rem] p-5"><p class="text-xs uppercase tracking-[0.22em] text-[rgba(45,11,74,0.45)]">Level</p><p id="academyLevel" class="mt-2 text-xl font-semibold">Beginner to Intermediate</p></div>
+                  <div class="glass rounded-[1.5rem] p-5"><p class="text-xs uppercase tracking-[0.22em] text-[rgba(45,11,74,0.45)]">Investment</p><p id="academyPrice" class="mt-2 text-xl font-semibold">$420</p></div>
+                </div>
+
+                <div class="mt-7">
+                  <p class="text-[10px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.45)] mb-3">You will gain</p>
+                  <div id="academyBenefits" class="grid sm:grid-cols-2 gap-3"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid gap-6">
+              <div class="glass rounded-[2rem] overflow-hidden">
+                <div class="p-5 md:p-7 border-b border-[rgba(30,64,175,0.08)]">
+                  <p class="text-[10px] uppercase tracking-[0.24em] text-[rgba(45,11,74,0.45)]">Enrollment Flow</p>
+                  <h3 class="mt-3 text-2xl font-semibold">Reserve a seat</h3>
+                </div>
+
+                <div class="p-5 md:p-7 space-y-5">
+                  <div>
+                    <label for="academy-name" class="block text-[11px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.52)] mb-2">Full Name</label>
+                    <input id="academy-name" type="text" placeholder="e.g. David Okoye" class="w-full rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/82 px-4 py-3.5 md:py-4" />
+                  </div>
+                  <div>
+                    <label for="academy-email" class="block text-[11px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.52)] mb-2">Email Address</label>
+                    <input id="academy-email" type="email" placeholder="e.g. david@company.com" class="w-full rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/82 px-4 py-3.5 md:py-4" />
+                  </div>
+                  <div>
+                    <label for="academy-program-select" class="block text-[11px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.52)] mb-2">Program of Interest</label>
+                    <select id="academy-program-select" class="w-full rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/82 px-4 py-3.5 md:py-4">
+                      <option value="digital-foundations">Digital Foundations</option>
+                      <option value="automation-mastery">Automation Mastery</option>
+                      <option value="ai-productivity">AI Productivity Lab</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="academy-goal" class="block text-[11px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.52)] mb-2">What do you want to achieve?</label>
+                    <textarea id="academy-goal" rows="4" placeholder="e.g. I want to learn how to automate business workflows, improve my productivity with AI tools, and build systems I can use in real projects." class="w-full rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/82 px-4 py-3.5 md:py-4 resize-none"></textarea>
+                  </div>
+                  <button id="academyEnrollButton" type="button" class="w-full inline-flex items-center justify-center rounded-2xl px-6 py-4 text-sm font-semibold text-white bg-gradient-to-r from-blue-700 to-sky-400 shadow-[0_20px_40px_rgba(59,130,246,0.24)] hover:scale-[1.02] transition-smooth">
+                    Reserve My Seat
+                  </button>
+                  <p id="academyEnrollmentNote" class="text-sm text-[rgba(15,23,42,0.60)]">Reserve your seat in the next cohort. Our team will review your submission and contact you with next steps.</p>
+                </div>
+              </div>
+
+              <article class="glass rounded-[2rem] p-5 md:p-7">
+                <h3 class="text-2xl font-semibold">Seat availability status</h3>
+                <div class="mt-6 space-y-4">
+                  <div>
+                    <div class="flex items-center justify-between text-sm text-[rgba(45,11,74,0.62)] mb-2">
+                      <span>Current fill rate</span>
+                      <span id="academyBarText">72%</span>
+                    </div>
+                    <div class="h-3 rounded-full bg-[rgba(59,130,246,0.10)] overflow-hidden">
+                      <div id="academyBar" class="h-full rounded-full bg-gradient-to-r from-blue-700 to-sky-400" style="width:72%"></div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cases">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+            <div>
+              <div class="inline-flex items-center gap-3 rounded-full border border-[rgba(30,64,175,0.10)] glass px-4 py-2 mb-5">
+                <span class="h-2.5 w-2.5 rounded-full bg-[var(--neon)]"></span>
+                <span class="text-[11px] uppercase tracking-[0.28em] text-[rgba(45,11,74,0.70)]">Case Studies</span>
+              </div>
+              <h2 class="text-3xl md:text-5xl font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--text)]">Selected outcomes shaped through premium thinking and measurable execution.</h2>
+            </div>
+          </div>
+
+          <div class="grid xl:grid-cols-3 gap-6">
+            <article class="glass rounded-[2rem] p-5 md:p-7"><h3 class="text-2xl font-semibold">Luxury Service Website Refresh</h3><p class="mt-4 leading-7 text-[rgba(45,11,74,0.68)]">Reframed an outdated service site into a modern premium experience with stronger messaging and better conversion paths.</p></article>
+            <article class="glass rounded-[2rem] p-5 md:p-7"><h3 class="text-2xl font-semibold">Operational Automation Upgrade</h3><p class="mt-4 leading-7 text-[rgba(45,11,74,0.68)]">Reorganized fragmented workflows into a clearer automation stack that reduced manual repetition.</p></article>
+            <article class="glass rounded-[2rem] p-5 md:p-7"><h3 class="text-2xl font-semibold">Academy Enrollment Path Refresh</h3><p class="mt-4 leading-7 text-[rgba(45,11,74,0.68)]">Improved the clarity and appeal of a learning offer through cleaner packaging, stronger structure, and better user guidance across the enrollment journey.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="cta" class="px-5 md:px-[6%] pt-20 md:pt-28 pb-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="relative overflow-hidden rounded-[2.25rem] border border-[rgba(30,64,175,0.10)] bg-white/76 backdrop-blur-xl shadow-[0_24px_80px_rgba(59,130,246,0.12)]">
+            <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.82),rgba(240,247,255,0.94),rgba(225,240,255,0.98))]"></div>
+            <div class="relative px-5 md:px-8 lg:px-12 py-8 md:py-12 lg:py-14">
+              <div class="grid lg:grid-cols-[1.08fr_.92fr] gap-10 lg:gap-12 items-center">
+                <div>
+                  <div class="inline-flex items-center gap-3 rounded-full border border-[rgba(30,64,175,0.10)] bg-white/78 backdrop-blur-xl px-4 py-2 mb-6">
+                    <span class="h-2.5 w-2.5 rounded-full bg-[var(--neon)]"></span>
+                    <span class="text-[11px] uppercase tracking-[0.28em] text-[rgba(45,11,74,0.70)]">Final Call To Action</span>
+                  </div>
+
+                  <h2 class="text-4xl md:text-5xl xl:text-6xl font-semibold leading-[0.98] tracking-[-0.04em] text-[var(--text)]">
+                    Ready to build your next
+                    <span class="bg-gradient-to-r from-blue-800 via-blue-600 to-sky-400 bg-clip-text text-transparent">premium digital project?</span>
+                  </h2>
+
+                  <p class="mt-6 max-w-2xl text-[15px] md:text-lg leading-7 md:leading-8 text-[rgba(15,23,42,0.68)]">
+                    Partner with TechSavvi Group to design elegant systems, launch stronger digital experiences, and create future-ready capability across services, innovation, and education.
+                  </p>
+                </div>
+
+                <div>
+                  <div class="rounded-[2rem] border border-[rgba(30,64,175,0.10)] bg-white/74 backdrop-blur-xl shadow-[0_20px_60px_rgba(59,130,246,0.10)] overflow-hidden">
+                    <div class="p-5 md:p-7 border-b border-[rgba(30,64,175,0.08)]">
+                      <h3 class="text-2xl font-semibold">Start a premium conversation</h3>
+                    </div>
+
+                    <div class="p-5 md:p-7 space-y-5">
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label for="cta-name" class="block text-[11px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.52)] mb-2">Full Name</label>
+                          <input id="cta-name" type="text" placeholder="Your name" class="w-full rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/80 px-4 py-3.5 md:py-4" />
+                        </div>
+                        <div>
+                          <label for="cta-email" class="block text-[11px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.52)] mb-2">Email</label>
+                          <input id="cta-email" type="email" placeholder="you@example.com" class="w-full rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/80 px-4 py-3.5 md:py-4" />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label for="cta-interest" class="block text-[11px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.52)] mb-2">Primary Interest</label>
+                        <select id="cta-interest" class="w-full rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/80 px-4 py-3.5 md:py-4">
+                          <option>Premium Website Design</option>
+                          <option>Automation & Workflow Systems</option>
+                          <option>TechSavvi Labs</option>
+                          <option>TechSavvi Academy</option>
+                          <option>Strategy Consultation</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label for="cta-message" class="block text-[11px] uppercase tracking-[0.22em] text-[rgba(45,11,74,0.52)] mb-2">Project Brief</label>
+                        <textarea id="cta-message" rows="5" placeholder="Tell us what you want to build, improve, or launch." class="w-full rounded-2xl border border-[rgba(30,64,175,0.10)] bg-white/80 px-4 py-3.5 md:py-4 resize-none"></textarea>
+                      </div>
+
+                      <button type="button" class="inline-flex w-full sm:w-auto items-center justify-center rounded-2xl px-6 py-4 text-sm font-semibold text-white bg-gradient-to-r from-blue-700 to-sky-400 shadow-[0_20px_40px_rgba(59,130,246,0.24)] hover:scale-[1.02] transition-smooth">
+                        Send Inquiry
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer" class="relative px-5 md:px-[6%] pb-8 pt-0">
+      <div class="glass rounded-[2rem] glow overflow-hidden border border-white/10">
+        <div class="grid lg:grid-cols-[1.25fr_.8fr_.8fr] gap-8 md:gap-10 px-5 md:px-8 lg:px-10 py-8 md:py-10">
+          <div>
+            <div class="flex items-center gap-3 mb-5">
+              <div class="relative rounded-xl px-2 py-1 glass border border-white/10 flex items-center justify-center overflow-hidden">
+                <img src="assets/logo-only.png" alt="TechSavvi Group logo" class="h-11 w-auto object-contain" />
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold tracking-[0.14em] uppercase text-[var(--text)]">TechSavvi Group</h3>
+                <p class="text-sm text-[var(--text)]/60">Premium technology ecosystem</p>
+              </div>
+            </div>
+            <p class="max-w-xl text-sm md:text-base leading-7 text-[var(--text)]/72">
+              TechSavvi Group builds future-facing digital companies, innovation systems, and education pathways designed to help ambitious brands scale with precision, intelligence, and elegance.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--text)] mb-4">Navigation</h4>
+            <div class="grid gap-3">
+              <a href="#hero" class="text-sm text-[var(--text)]/70 hover:text-[var(--text)] transition-smooth">Home</a>
+              <a href="#about" class="text-sm text-[var(--text)]/70 hover:text-[var(--text)] transition-smooth">About</a>
+              <a href="#services" class="text-sm text-[var(--text)]/70 hover:text-[var(--text)] transition-smooth">Services</a>
+              <a href="#labs" class="text-sm text-[var(--text)]/70 hover:text-[var(--text)] transition-smooth">Labs</a>
+              <a href="#academy" class="text-sm text-[var(--text)]/70 hover:text-[var(--text)] transition-smooth">Academy</a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--text)] mb-4">Contact</h4>
+            <div class="grid gap-3 text-sm text-[var(--text)]/70">
+              <p>Strategy consultations</p>
+              <p>Innovation partnerships</p>
+              <p>Enterprise transformation</p>
+              <a href="#cta" class="inline-flex w-fit items-center justify-center rounded-xl px-4 py-3 mt-2 text-sm font-semibold text-white bg-gradient-to-r from-blue-700 to-sky-400 glow transition-smooth">
+                Start a Conversation
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="border-t border-white/10 px-5 md:px-8 lg:px-10 py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+          <p class="text-xs md:text-sm text-[var(--text)]/50">© 2026 TechSavvi Group. All rights reserved. Built for the next era of innovation.</p>
+          <p class="text-xs md:text-sm text-[var(--text)]/45">Elegant systems. Intelligent products. Premium outcomes.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+    </div>
+
+  <div id="quickActions" class="fixed right-4 md:right-6 bottom-4 md:bottom-6 z-40 flex flex-col gap-3">
+    <a
+      href="#cta"
+      class="inline-flex items-center gap-3 rounded-2xl border border-[rgba(30,64,175,0.12)] bg-white/92 backdrop-blur-xl px-4 py-3 shadow-[0_16px_36px_rgba(59,130,246,0.14)] text-[var(--text)] hover:scale-[1.02] transition-smooth"
+      aria-label="Contact Us"
+    >
+      <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[linear-gradient(135deg,rgba(59,130,246,0.12),rgba(56,189,248,0.16))]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h8M8 14h5M7 4h10a3 3 0 013 3v6a3 3 0 01-3 3h-4l-4 4v-4H7a3 3 0 01-3-3V7a3 3 0 013-3z" />
+        </svg>
+      </span>
+      <span class="hidden sm:block text-sm font-semibold">Contact Us</span>
+    </a>
+
+    <a
+      href="https://wa.me/2348169930012"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-3 rounded-2xl border border-[rgba(30,64,175,0.12)] bg-white/92 backdrop-blur-xl px-4 py-3 shadow-[0_16px_36px_rgba(59,130,246,0.14)] text-[var(--text)] hover:scale-[1.02] transition-smooth"
+      aria-label="Live Chat"
+    >
+      <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[linear-gradient(135deg,rgba(59,130,246,0.12),rgba(56,189,248,0.16))]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8h.01M12 8h.01M7 8h.01M7 16l-3 3V6a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H7z" />
+        </svg>
+      </span>
+      <span class="hidden sm:block text-sm font-semibold">Live Chat</span>
+    </a>
+
+    <a
+      href="tel:+2348169930012"
+      class="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-blue-700 to-sky-400 px-4 py-3 text-white shadow-[0_18px_40px_rgba(59,130,246,0.24)] hover:scale-[1.02] transition-smooth"
+      aria-label="Call Us"
+    >
+      <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/15">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 5.5A2.5 2.5 0 015.5 3h2A2.5 2.5 0 0110 5.5v1A2.5 2.5 0 018.6 8.73l-1.05.52a16.02 16.02 0 007.2 7.2l.52-1.05A2.5 2.5 0 0117.5 14h1A2.5 2.5 0 0121 16.5v2a2.5 2.5 0 01-2.5 2.5H18C9.72 21 3 14.28 3 6V5.5z" />
+        </svg>
+      </span>
+      <span class="hidden sm:block text-sm font-semibold">Call Us</span>
+    </a>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+---
+title: Contact Us
+path: /contact
+nav: contact
+description: Contact TechSavvi Group about a website, app or software project, a Labs partnership or Academy courses. Call or WhatsApp +234 816 993 0012.
+---
+<section class="hero-bg relative overflow-hidden">
+  <div class="grid-lines pointer-events-none absolute inset-0" aria-hidden="true"></div>
+  <div class="container-site relative py-14 md:py-20">
+    <p class="eyebrow">Contact</p>
+    <h1 class="mt-5 max-w-3xl text-4xl font-semibold leading-[1.1] sm:text-5xl">Tell us what you're working on</h1>
+    <p class="lead">Send us a message about a project, a partnership or the Academy. We'll reply with next steps.</p>
+  </div>
+</section>
+
+<section class="section !pt-10">
+  <div class="container-site grid gap-12 lg:grid-cols-[1.25fr_.75fr]">
+    <form action="{{formContact}}" method="POST" data-ajax data-success="Thank you! Your message has been sent. We'll get back to you shortly." class="card space-y-5 self-start">
+      <input type="hidden" name="_subject" value="New enquiry from the TechSavvi website" />
+      <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div><label for="c-name" class="field-label">Full name</label><input id="c-name" name="name" type="text" autocomplete="name" required class="field" /></div>
+        <div><label for="c-org" class="field-label">Company / organisation <span class="font-normal text-slate-400">(optional)</span></label><input id="c-org" name="organisation" type="text" autocomplete="organization" class="field" /></div>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div><label for="c-email" class="field-label">Email address</label><input id="c-email" name="email" type="email" autocomplete="email" required class="field" placeholder="you@example.com" /></div>
+        <div><label for="c-phone" class="field-label">Phone / WhatsApp <span class="font-normal text-slate-400">(optional)</span></label><input id="c-phone" name="phone" type="tel" autocomplete="tel" class="field" /></div>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label for="service" class="field-label">What do you need?</label>
+          <select id="service" name="service" required class="field">
+            <option value="">Choose one</option>
+            <option value="website">A website</option>
+            <option value="web-app">A web application</option>
+            <option value="mobile-app">A mobile app</option>
+            <option value="payments">Payments / fintech</option>
+            <option value="data">Data analysis or dashboards</option>
+            <option value="ai">AI or automation</option>
+            <option value="labs">A Labs partnership</option>
+            <option value="academy">Academy courses</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+        <div>
+          <label for="c-budget" class="field-label">Budget <span class="font-normal text-slate-400">(optional)</span></label>
+          <select id="c-budget" name="budget" class="field">
+            <option value="">Not sure yet</option>
+            <option>Under ₦500,000</option>
+            <option>₦500,000 – ₦1,500,000</option>
+            <option>₦1,500,000 – ₦5,000,000</option>
+            <option>Above ₦5,000,000</option>
+            <option>International project (USD/GBP)</option>
+          </select>
+        </div>
+      </div>
+      <div><label for="c-message" class="field-label">Tell us about your project</label><textarea id="c-message" name="message" rows="5" required minlength="10" class="field resize-y" placeholder="What are you trying to achieve? Any deadline?"></textarea></div>
+      <button type="submit" class="btn-primary w-full sm:w-auto">Send message</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+      <p class="text-xs text-slate-500">We only use your details to reply to your enquiry. See our <a href="/privacy" class="underline">privacy policy</a>.</p>
+    </form>
+
+    <aside class="space-y-4">
+      <a href="{{whatsapp}}" target="_blank" rel="noopener" class="card card-hover block">
+        <p class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">WhatsApp</p>
+        <p class="mt-1 font-display text-lg font-semibold">Chat with us</p>
+        <p class="mt-1 text-sm text-slate-600">Usually the fastest way to reach us.</p>
+      </a>
+      <a href="tel:{{phoneHref}}" class="card card-hover block">
+        <p class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Phone</p>
+        <p class="mt-1 font-display text-lg font-semibold">{{phone}}</p>
+      </a>
+            <a href="mailto:{{email}}" class="card card-hover block">
+        <p class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Email</p>
+        <p class="mt-1 font-display text-lg font-semibold">{{email}}</p>
+      </a> 
+      <div class="card">
+        <p class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Follow us</p>
+        <div class="mt-2 flex flex-col gap-1.5 text-sm">
+          <a href="{{instagram}}" target="_blank" rel="noopener" class="link-arrow">Instagram @techsavvigroup</a>
+          <a href="{{tiktok}}" target="_blank" rel="noopener" class="link-arrow">TikTok @tech_savvi</a>
+        </div>
+      </div>
+      <div class="card">
+        <p class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Office</p>
+        <p class="mt-1 text-sm leading-6 text-slate-700">{{address}}</p>
+        <p class="mt-3 inline-flex items-center gap-2 text-sm font-medium text-emerald-700"><span class="h-2 w-2 rounded-full bg-emerald-500"></span>Available 24/7</p>
+      </div>
+    </aside>
+  </div>
+</section>
